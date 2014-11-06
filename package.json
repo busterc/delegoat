@@ -1,0 +1,28 @@
+{
+  "name": "delegoat",
+  "version": "1.0.0",
+  "description": "Delegate handlers for JSON payloads, where the payload data model closely resembles an HTTP Request message but is decoupled from HTTP.",
+  "main": "main.js",
+  "dependencies": {
+    "murl": "^0.4.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-jshint": "^1.9.0",
+    "jshint-stylish": "^1.0.0"
+  },
+  "author": "Buster Collings",
+  "license": "ISC",
+  "homepage": "https://github.com/busterc/delegoat",
+  "repository": {
+    "url": "https://github.com/busterc/delegoat.git"
+  },
+  "keywords": [
+    "delegate",
+    "delegator",
+    "delegoat",
+    "handler",
+    "route",
+    "router"
+  ],
+}
