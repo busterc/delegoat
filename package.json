@@ -15,7 +15,8 @@
   "license": "ISC",
   "homepage": "https://github.com/busterc/delegoat",
   "repository": {
-    "url": "https://github.com/busterc/delegoat.git"
+    "type": "git",
+    "url": "https://github.com/busterc/delegoat"
   },
   "keywords": [
     "delegate",
@@ -24,5 +25,5 @@
     "handler",
     "route",
     "router"
-  ],
+  ]
 }
