@@ -10,7 +10,7 @@ Made for Node.
 >
 >Andrew St. "Delegoat." Urban Dictionary. N.p., 2 Jan. 2008. Web. 6 Nov. 2014. <http://www.urbandictionary.com/define.php?term=delegoat>.
 
-## Version 1.0.0
+## Version 1.0.1
 
 - Payloads typically originate from an [AMQP broker](https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol#AMQP_1.0_broker_implementations)
 - **delegoat** expects JSON payloads that conform to the following data schema:

@@ -1,6 +1,6 @@
 {
   "name": "delegoat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Delegate handlers for JSON payloads, where the payload data model closely resembles an HTTP Request message but is decoupled from HTTP.",
   "main": "main.js",
   "dependencies": {

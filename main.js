@@ -4,6 +4,7 @@ module.exports = function() {
   var murl = require('murl');
 
   var delegoat = {
+    uses: [],
     posts: [],
     gets: [],
     puts: [],
@@ -25,6 +26,9 @@ module.exports = function() {
     },
     delete: function(route, fn) {
       this._bindHandler('delete', route, fn);
+    },
+    use: function(fn) {
+      this.uses.push(fn);
     },
     handleIt: function(data) {
       var method = data.method.toLowerCase();
@@ -67,11 +71,17 @@ module.exports = function() {
             serviceData.body = data.body;
           }
 
+          // apply middleware
+          var fn = 0;
+          for (fn; fn < this.uses.length; fn++) {
+            serviceData = this.uses[fn](serviceData);
+          }
+
           return routeHandler.fn(serviceData);
         }
       }
 
-      return (function(){
+      return (function() {
         throw new Error('NO HANDLER FOUND FOR: ' + method + ' ' + data.url);
       })();
     }
