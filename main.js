@@ -33,8 +33,8 @@ module.exports = function() {
     handleIt: function(data) {
       var method = data.method.toLowerCase();
       var methods = method + 's';
-      var parsedUrl = url.parse(data.url, true);
-      var serviceData = {
+      var parsedUri = url.parse(data.uri, true);
+      var request = {
         // TODO: headers: {},
         // TODO: hashes: {},
         parameters: {},
@@ -52,32 +52,32 @@ module.exports = function() {
         routePattern = routeHandler.route;
 
         murlPattern = murl(routePattern);
-        urlParameters = murlPattern(parsedUrl.pathname);
+        urlParameters = murlPattern(parsedUri.pathname);
 
         if (!!urlParameters) {
 
-          serviceData.parameters = urlParameters;
+          request.parameters = urlParameters;
 
-          if (!!parsedUrl.query) {
-            serviceData.query = parsedUrl.query;
+          if (!!parsedUri.query) {
+            request.query = parsedUri.query;
           }
 
           if (!!data.body) {
-            serviceData.body = data.body;
+            request.body = data.body;
           }
 
           // apply middleware
           var fn = 0;
           for (fn; fn < this.uses.length; fn++) {
-            serviceData = this.uses[fn](serviceData);
+            request = this.uses[fn](request);
           }
 
-          return routeHandler.fn(serviceData);
+          return routeHandler.fn(request);
         }
       }
 
       return (function() {
-        throw new Error('NO HANDLER FOUND FOR: ' + method + ' ' + data.url);
+        throw new Error('NO HANDLER FOUND FOR: ' + method + ' ' + data.uri);
       })();
     }
   };

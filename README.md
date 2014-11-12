@@ -10,16 +10,16 @@ Made for Node.
 >
 >Andrew St. "Delegoat." Urban Dictionary. N.p., 2 Jan. 2008. Web. 6 Nov. 2014. <http://www.urbandictionary.com/define.php?term=delegoat>.
 
-## Version 1.0.2
+## Version 2.0.0
 
 - Payloads typically originate from an [AMQP broker](https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol#AMQP_1.0_broker_implementations)
-- **delegoat** expects JSON payloads that conform to the following data schema:
+- **delegoat** expects JSON payloads that conforms to the [HyperJSON Request Message Schema](https://github.com/HyperJSON/HyperJSON-Request), in short:
 
   ```javascript
   {
-    method: '', // GET | POST | PUT | DELETE
-    url: '', // /resource/identifiers?key=value&other=stuff
-    body: {}
+    method: '', // is required, options: GET | POST | PUT | DELETE
+    uri: '',    // is required, e.g. /resource/identifiers?key=value&other=stuff
+    body: {}    // is entirely optional
   }
   ```
 
@@ -37,7 +37,7 @@ $ npm install --save delegoat
     ```javascript
     {
       method: 'GET'
-      url: '/organizations/123?role=manager'
+      uri: '/organizations/123?role=manager'
     }
     ```
 
@@ -82,7 +82,7 @@ $ npm install --save delegoat
     ```javascript
     {
       method: 'POST'
-      url: '/organizations',
+      uri: '/organizations',
       body: {
         id: 'cfabb3a7-6de0-4b40-8903-99aaac104124',
         name: 'Startups Anonymous, LLC'
