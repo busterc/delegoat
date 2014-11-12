@@ -12,7 +12,7 @@ Made for Node.
 
 ## _Includes RPC for Help.com ESB Samples_
 
-## Version 1.0.1
+## Version 1.0.2
 
 - **delegoat** expects JSON payloads that conform to the following data schema:
 
