@@ -33,7 +33,7 @@ module.exports = function() {
     handleIt: function(data) {
       var method = data.method.toLowerCase();
       var methods = method + 's';
-      var parsedUrl = url.parse(data.url);
+      var parsedUrl = url.parse(data.url, true);
       var serviceData = {
         // TODO: headers: {},
         // TODO: hashes: {},
@@ -59,12 +59,7 @@ module.exports = function() {
           serviceData.parameters = urlParameters;
 
           if (!!parsedUrl.query) {
-            var pairs = parsedUrl.query.split('&');
-            var pair = 0;
-            for (pair; pair < pairs.length; pair++) {
-              var keys = pairs[pair].split('=');
-              serviceData.query[keys[0]] = keys[1];
-            }
+            serviceData.query = parsedUrl.query;
           }
 
           if (!!data.body) {
